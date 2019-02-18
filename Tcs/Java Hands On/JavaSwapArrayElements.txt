@@ -1,0 +1,25 @@
+
+public class Solution{
+  public static int[] swapValues(int[] arr){
+    int i,j,k;
+    for(i=1;i<arr.length;i+=2){
+      if(i!=arr.length-1){
+        k=arr[i-1];
+        arr[i-1]=arr[i];
+        arr[i]=k;
+      }
+      
+    }
+    return arr;
+  }
+  public static void main(String[] args){
+    int[] arr={111,77,88,44,32,11,13,25,44};
+    arr=swapValues(arr);
+    for(int i=0;i<arr.length;i++){
+      System.out.print(arr[i]+" ");
+    }
+    
+  }
+  
+  
+}

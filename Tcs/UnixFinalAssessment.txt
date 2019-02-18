@@ -1,0 +1,77 @@
+#!/bin/bash
+#write your code here
+if [ $# -eq "1" ]
+    then
+        if [ -e $1 ]
+            then
+                
+                if [ -f $1 ]
+                    then
+                        if [ -r $1 ]
+                            then
+                                grep -cv -P '\S' $1
+                        else
+                                echo "Input file does not have read permission"
+                        fi
+                else
+                    echo "Input file is not an ordinary file"
+                fi
+        else 
+                echo "Input file does not exist"
+        fi
+else
+    echo "Pass appropriate number of command line arguments"
+fi
+
+
+
+
+
+
+
+
+testCases.txt
+
+
+ 
+ 
+Running test case 1.... Command Line Arguments Validation
+Command : bash script.sh
+Expected Output : Pass appropriate number of command line arguments
+Your output: Pass appropriate number of command line arguments
+Test case passed
+ 
+ 
+Running test case 2.... Input file existence Validation
+Command : bash script.sh abc
+Expected Output : Input file does not exist
+Your output: Input file does not exist
+Test case passed
+ 
+ 
+Running test case 4.... Input file ordinary file Validation
+Command : bash script.sh abc
+Expected Output : Input file is not an ordinary file
+Your output: Input file does not exist
+Test case failed. Please check your code
+ 
+ 
+Running test case 2.... Input file read access validation
+Command : bash script.sh abc
+Expected Output : Input file does not exist
+Your output: Input file does not exist
+Test case failed. Please check your code
+ 
+ 
+Running test case 3.... Count of empty lines in the file file.dat
+Command : bash script.sh file.dat
+Expected Output : 0
+Your Output : 0
+Test case passed
+ 
+ 
+Running test case 4.... Count of empty lines in the file sample.txt
+Command : bash script.sh sample.txt
+Expected Output : 3
+Your Output : 3
+Test case passed

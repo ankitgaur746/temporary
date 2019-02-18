@@ -1,0 +1,150 @@
+public class Student{
+  public String name,city;
+  public double age;
+  public Student(String name,double age,String city){
+    this.name=name;
+    this.age=age;
+    this.city=city;
+    
+  }
+  
+  
+  
+  
+  
+}
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+______________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_________________________________________________________________________________________________________________________
+-------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class Solution{
+  public static int studentCountWithSameCityAndAge(Student s1,Student s2,Student s3){
+    int count=0;
+    if((s1.city.equals(s2.city))&&(s1.age==s2.age)){
+      count=2;
+      if((s1.age==s3.age)&&(s1.city.equals(s3.city)))
+      count++;
+    }
+    else if((s3.city.equals(s1.city))&&(s1.age==s3.age)){
+      count=2;
+    } 
+    
+    else if((s3.city.equals(s2.city))&&(s3.age==s2.age)){
+      count=2;
+      
+    }
+    
+    return count;
+  }
+  public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    String name,city;
+    int age;
+    name=sc.nextLine();
+    age=sc.nextInt();
+    sc.nextLine();
+    city=sc.nextLine();
+    Student s1=new Student(name,age,city);
+    name=sc.nextLine();
+    age=sc.nextInt();
+    sc.nextLine();
+    city=sc.nextLine();
+    Student s2=new Student(name,age,city);
+    name=sc.nextLine();
+    age=sc.nextInt();
+    sc.nextLine();
+    city=sc.nextLine();
+    Student s3=new Student(name,age,city);
+    System.out.println(Solution.studentCountWithSameCityAndAge(s1,s2,s3));
+    
+    
+  }
+  
+  
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+___________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________
+
+import java.util.Scanner;
+public class Solution{
+  public static int studentCountWithSameCityAndAge(Student s1,Student s2,Student s3){
+    int count=0;
+    if((s1.city.equals(s2.city))&&(s1.age==s2.age)){
+      count=2;
+      if((s1.age==s3.age)&&(s1.city.equals(s3.city)))
+      count++;
+    }
+    else if((s3.city.equals(s1.city))&&(s1.age==s3.age)){
+      count=2;
+    } 
+    
+    else if((s3.city.equals(s2.city))&&(s3.age==s2.age)){
+      count=2;
+      
+    }
+    
+    return count;
+  }
+  public static void main(String[] args){
+    Student s1=new Student("aaa",15,"delhi");
+    Student s2=new Student("bbb",16,"mumbai");
+    Student s3=new Student("ccc",15,"mumbai");
+    System.out.println(Solution.studentCountWithSameCityAndAge(s1,s2,s3));
+    
+    
+  }
+  
+  
+  
+  
+  
+}

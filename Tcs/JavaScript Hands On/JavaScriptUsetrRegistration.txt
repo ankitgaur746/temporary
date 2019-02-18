@@ -1,0 +1,74 @@
+index.html
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<div id="app">
+    User Id:<input type="text" id="uid" onkeyup="validate();"/>
+    <div id="msgUid"></div>
+    Password:<input type="password" id="password" onkeyup="validate();"/>
+    <div id="msgPassword"></div>
+    Confirm Password:
+    <input type="password" id="confirm" onkeyup="validate();"/>
+    <div id="msgConfirm">
+    </div>
+    <input type="button" id="create" value="Create" onclick="validate();"/>
+</div>
+
+
+</body>
+
+</html>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+index.js
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+function validate(){
+            var a=document.getElementById('uid').value;
+			var b=document.getElementById('password').value;
+			var c=document.getElementById('confirm').value;
+			
+			
+			if(a==""){
+			  document.getElementById('msgUid').innerHTML="Invalid Entry";
+			}else{
+			  document.getElementById('msgUid').innerHTML="OK!";
+			}
+			
+			
+            if(b==""){
+			  document.getElementById('msgPassword').innerHTML="Invalid Entry";
+			}else{
+			  document.getElementById('msgPassword').innerText="OK!";
+			}
+            if(c==""){
+			  document.getElementById('msgConfirm').innerHTML="Invalid Entry";
+			}else{
+			  document.getElementById('msgConfirm').innerHTML="OK!";
+			}
+			if((b!="")&&(c!="")){
+			  if(b!=c){
+    			  document.getElementById('msgUid').innerHTML="Invalid Entry";
+    			  document.getElementById('msgPassword').innerHTML="Invalid Entry";
+    			  document.getElementById('msgConfirm').innerHTML="Invalid Entry";
+			  }
+			  
+			  
+			}
+			
+  
+}

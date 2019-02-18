@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        int n;
+        Scanner sc = new Scanner(System.in);
+        int i;
+        n=sc.nextInt();
+        int[] arr=new int[n];
+        for(i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+
+
+        }
+        List<Integer> lList =new ArrayList<Integer>();
+        int count=0;
+        for(i=0;i<n;i++){
+            int reverse=0,p;
+            if(BigInteger.valueOf(arr[i]).isProbablePrime(1)){
+                p=arr[i];
+                while(p!=0){
+                    reverse=reverse*10;
+                    reverse=reverse+p%10;
+                    p=p/10;
+                }
+                if(BigInteger.valueOf(reverse).isProbablePrime(1)){
+                    //System.out.println(arr[i]);
+                    lList.add(arr[i]);
+                    
+                }
+
+
+
+            }
+        }
+        Collections.sort(lList);
+        Iterator iterator=lList.iterator();
+        while(iterator.hasNext()){
+            
+            System.out.println(iterator.next());
+        }
+        
+        
+           
+    }
+}
+

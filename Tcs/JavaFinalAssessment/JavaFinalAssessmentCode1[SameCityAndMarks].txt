@@ -1,0 +1,98 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Main {
+    public static void main(String args[]) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner sc = new Scanner(System.in);
+        int id, i;
+        String name, city;
+        double marks;
+        int k = sc.nextInt();
+        Student[] s = new Student[k];
+        for (i = 0; i < k; i++) {
+            id = sc.nextInt();
+            sc.nextLine();
+            name = sc.nextLine();// sc.nextLine();
+            city = sc.nextLine();// sc.nextLine();
+            marks = sc.nextDouble();
+            sc.nextLine();
+            s[i] = new Student(id, name, city, marks);
+
+        }
+        String scity = sc.nextLine();// sc.nextDouble();
+        double smarks = sc.nextDouble();
+        Student[] ss = Main.getStudentsWithCityAndMarks(s, scity, smarks);
+        System.out.println(ss.length);
+        for (i = 0; i < ss.length; i++) {
+            System.out.println(ss[i].id + " " + ss[i].name + " " + ss[i].city + " " + ss[i].marks);
+
+        }
+
+    }
+
+    public static Student[] getStudentsWithCityAndMarks(Student[] students, String city, double marks) {
+        int i, j, k, count = 0;
+
+        for (i = 0; i < students.length; i++) {
+            if ((students[i].city.equals(city)) && (students[i].marks == marks)) {
+                count++;
+
+            }
+
+        }
+
+        int[] ids = new int[count];
+        for (i = 0, j = -1; i < students.length; i++) {
+            if ((students[i].city.equals(city)) && (students[i].marks == marks)) {
+                ids[++j] = students[i].id;
+
+            }
+
+        }
+
+        int val, tmp;
+        for (i = 0; i < count; i++) {
+            val = ids[i];
+            for (j = i + 1; j < count; j++) {
+                if (ids[j] < val) {
+                    tmp = ids[i];
+                    ids[i] = ids[j];
+                    ids[j] = tmp;
+                }
+
+            }
+
+        }
+
+        Student[] s = new Student[count];
+        for (i = 0; i < count; i++) {
+            for (j = 0; j < students.length; j++) {
+                if (students[j].id == ids[i]) {
+                    s[i] = students[j];
+                }
+            }
+
+        }
+        return s;
+
+    }
+}
+
+class Student {
+    public int id;
+    public String name, city;
+    public double marks;
+
+    public Student(int id, String name, String city, double marks) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.marks = marks;
+
+    }
+
+}

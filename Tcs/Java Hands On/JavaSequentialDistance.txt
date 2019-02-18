@@ -1,0 +1,65 @@
+
+public class Point{
+  private double x,y;
+  public Point(double x,double y){
+    this.x=x;
+    this.y=y;
+  }
+  public void setx(double x){this.x=x;}
+  public void sety(double y){this.y=y;}
+  public double getx(){return x;}
+  public double gety(){return y;}
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Solution{
+  public static double findSequentialDistance(Point[] p){
+    double dis=0,x1,x2,y1,y2;
+    int i;
+    for(i=1;i<p.length;i++){
+      x1=p[i-1].getx();
+      y1=p[i-1].gety();
+      x2=p[i].getx();
+      y2=p[i].gety();
+      dis+=Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
+    }
+  
+    return dis;
+  }
+  
+  
+  
+  public static void main(String[] args){
+    Point p1=new Point(-3,-4);
+    Point p2=new Point(0,0);
+    Point p3=new Point(4,3);
+    Point p4=new Point(16,-2);
+    Point[] p={p1,p2,p3,p4};
+    Solution s=new Solution();
+    System.out.println(Solution.findSequentialDistance(p));
+    
+    
+    
+  }
+}
